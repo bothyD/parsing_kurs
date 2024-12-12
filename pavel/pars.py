@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from pages.log_on import LogOn
 from time import sleep
-
+from KEYS_SECRET import PASSWORD_KEY, LOGIN_KEY
 
 def inint_driver():
     chrome_options = Options()
@@ -21,8 +21,8 @@ def main():
     url = 'https://eios.sibsutis.ru/login/index.php'
     page = LogOn(driver)
     page.open(url)
-    page.input_username_block('')
-    page.input_password_block('')
+    page.input_username_block(LOGIN_KEY)
+    page.input_password_block(PASSWORD_KEY)
     sleep(1)
     page.button_log_on_click()
     sleep(2)
