@@ -25,6 +25,16 @@ def main():
     page.input_password_block(PASSWORD_KEY)
     sleep(1)
     page.button_log_on_click()
+    page.open('https://eios.sibsutis.ru/mod/attendance/view.php?id=58889')
+    try:
+        page.try_to_set_here()
+    except:
+        print("not time to study :)\nsee you later!")
+    
+    page.open('https://eios.sibsutis.ru/mod/attendance/view.php?id=58889&view=5')
+    sleep(2)
+    page_html = driver.page_source
+    page.get_all_visit(page_html)
     sleep(2)
     driver.quit()
 
